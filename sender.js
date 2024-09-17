@@ -25,17 +25,6 @@ function sendTelegramMessageAndRedirect() {
     }),
   };
 
-  // Make the API request
-  // axios.post(url, {
-  //   chat_id: chatId,
-  //   text: messageText
-  // })
-  // .then(function (response) {
-  //   console.log(response);
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
   fetch(url, params)
     .then((response) => {
       if (!response.ok) {
